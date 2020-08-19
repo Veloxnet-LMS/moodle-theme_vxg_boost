@@ -13,39 +13,37 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-                            
+
 defined('MOODLE_INTERNAL') || die();
 
-function theme_vxg_boost_get_main_scss_content($theme) {                                                                                
-    global $CFG;                                                                                                                    
- 
-    $scss = '';                                                                                                                     
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;                                                 
-    $fs = get_file_storage();                                                                                                       
- 
-    $context = context_system::instance();                                                                                          
-    if ($filename == 'default.scss') {                                                                                              
-        $scss .= file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/preset/default.scss');                                        
-    } else if ($filename == 'plain.scss') {                                                                                         
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');                                          
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost', 'preset', 0, '/', $filename))) {              
-        $scss .= $presetfile->get_content();                                                                                        
-    } else {                                                                                                                        
-        // Safety fallback - maybe new installs etc.                                                                                
-        $scss .= file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/preset/default.scss');                                        
-    }          
+function theme_vxg_boost_get_main_scss_content($theme) {
+    global $CFG;
 
-        // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.                                        
-        $pre = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/pre.scss');                                                         
-        // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.                                    
-        $post = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/post.scss');                                                      
-     
-        // Combine them together.                                                                                                       
-        return $pre . "\n" . $scss . "\n" . $post;  
-    
-                                                                                                                     
+    $scss = '';
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
+    $fs = get_file_storage();
+
+    $context = context_system::instance();
+    if ($filename == 'default.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/preset/default.scss');
+    } else if ($filename == 'plain.scss') {
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost', 'preset', 0, '/', $filename))) {
+        $scss .= $presetfile->get_content();
+    } else {
+        // Safety fallback - maybe new installs etc.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/preset/default.scss');
+    }
+
+        // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
+        $pre = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/pre.scss');
+        // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
+        $post = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/post.scss');
+
+        // Combine them together.
+        return $pre . "\n" . $scss . "\n" . $post;
+
 }
-
 
 function theme_vxg_boost_update_settings_images($settingname) {
     global $CFG;
@@ -60,7 +58,6 @@ function theme_vxg_boost_update_settings_images($settingname) {
     $syscontext = context_system::instance();
     // This is the component name the setting is stored in.
     $component = 'theme_vxg_boost';
-
 
     // This is the value of the admin setting which is the filename of the uploaded file.
     $filename = get_config($component, $settingname);
@@ -121,7 +118,6 @@ function theme_vxg_boost_get_pre_scss($theme) {
 
     ];
 
-
     // Prepend variables first.
     foreach ($configurable as $configkey => $targets) {
         $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
@@ -133,7 +129,6 @@ function theme_vxg_boost_get_pre_scss($theme) {
         }, (array) $targets);
     }
 
-
     // Prepend pre-scss.
     if (!empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
@@ -142,6 +137,6 @@ function theme_vxg_boost_get_pre_scss($theme) {
     return $scss;
 }
 
-function theme_vxg_boost_get_extra_scss($theme) {                                                                                       
-    return !empty($theme->settings->scss) ? $theme->settings->scss : '';                                                            
+function theme_vxg_boost_get_extra_scss($theme) {
+    return !empty($theme->settings->scss) ? $theme->settings->scss : '';
 }

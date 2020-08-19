@@ -13,12 +13,12 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-                                                               
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version =  '2020072600';
-$plugin->requires = '2016070700'; 
-$plugin->component = 'theme_vxg_boost'; 
+$plugin->version      = '2020072600';
+$plugin->requires     = '2016070700';
+$plugin->component    = 'theme_vxg_boost';
 $plugin->dependencies = [
-    'theme_boost' => '2016102100'
+    'theme_boost' => '2016102100',
 ];

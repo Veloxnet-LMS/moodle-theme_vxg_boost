@@ -14,47 +14,47 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();                                                                                                
- 
-// A description shown in the admin theme selector.                                                                                 
-$string['choosereadme'] = 'Vxg Boost téma egy gyermek téma a Boost-hoz.';                
-// The name of our plugin.                                                                                                          
-$string['pluginname'] = 'Vxg Boost';                                                                                                    
-// The name of the second tab in the theme settings.                                                                                
-$string['advancedsettings'] = 'Részletes beállítások';                                                                                  
-// The brand colour setting.                                                                                                        
-$string['brandcolor'] = 'Márkaszín';                                                                                             
-// The brand colour setting description.                                                                                            
-$string['brandcolor_desc'] = 'The accent colour.';                                                                                   
-// Name of the settings pages.                                                                                                      
-$string['configtitle'] = 'VXG Boost beállítások';                                                                                          
-// Name of the first settings tab.                                                                                                  
-$string['generalsettings'] = 'Általános beállítások';                                                                                    
-// The name of our plugin.                                                                                                          
-$string['pluginname'] = 'Vxg Boost';                                                                                                    
-// Preset files setting.                                                                                                            
-$string['presetfiles'] = 'További stílusalap-állományok';                                                                           
-// Preset files help text.                                                                                                          
+defined('MOODLE_INTERNAL') || die();
+
+// A description shown in the admin theme selector.
+$string['choosereadme'] = 'Vxg Boost téma egy gyermek téma a Boost-hoz.';
+// The name of our plugin.
+$string['pluginname'] = 'Vxg Boost';
+// The name of the second tab in the theme settings.
+$string['advancedsettings'] = 'Részletes beállítások';
+// The brand colour setting.
+$string['brandcolor'] = 'Márkaszín';
+// The brand colour setting description.
+$string['brandcolor_desc'] = 'The accent colour.';
+// Name of the settings pages.
+$string['configtitle'] = 'VXG Boost beállítások';
+// Name of the first settings tab.
+$string['generalsettings'] = 'Általános beállítások';
+// The name of our plugin.
+$string['pluginname'] = 'Vxg Boost';
+// Preset files setting.
+$string['presetfiles'] = 'További stílusalap-állományok';
+// Preset files help text.
 $string['presetfiles_desc'] = 'Az alapállományokkal drasztikusan megváltoztathatja egy stílus megjelenését. Saját alapállományok létrehozásával és megosztásával kapcsolatban lásd: <a href="https://docs.moodle.org/dev/Boost_Presets">Boost presets</a>. Mások alapállományait tekintse meg az  <a href="https://moodle.net/boost">Alapállományok tárában</a>.';
-// Preset setting.                                                                                                                  
-$string['preset'] = 'Stílusalap-állomány';                                                                                                 
-// Preset help text.                                                                                                                
-$string['preset_desc'] = 'Válasszon ki egy alapot a stílus kinézetének átszabásához.';                                                  
-// Raw SCSS setting.                                                                                                                
-$string['rawscss'] = 'Nyers SCSS';                                                                                                    
-// Raw SCSS setting help text.                                                                                                      
-$string['rawscss_desc'] = 'Ebben a mezőben adja meg a stíluslap végére beszúrandó SCSS- vagy CSS-kódot.';       
-// Raw initial SCSS setting.                                                                                                        
-$string['rawscsspre'] = 'Nyers kiinduló SCSS';                                                                                         
-// Raw initial SCSS setting help text.                                                                                              
+// Preset setting.
+$string['preset'] = 'Stílusalap-állomány';
+// Preset help text.
+$string['preset_desc'] = 'Válasszon ki egy alapot a stílus kinézetének átszabásához.';
+// Raw SCSS setting.
+$string['rawscss'] = 'Nyers SCSS';
+// Raw SCSS setting help text.
+$string['rawscss_desc'] = 'Ebben a mezőben adja meg a stíluslap végére beszúrandó SCSS- vagy CSS-kódot.';
+// Raw initial SCSS setting.
+$string['rawscsspre'] = 'Nyers kiinduló SCSS';
+// Raw initial SCSS setting help text.
 $string['rawscsspre_desc'] = 'Ebben a mezőben adhatja meg az inicializáló SCSS-kódot, amely mindent megelőzve szúródik be. A beállítást jobbára változók meghatározására fogja használni.';
-// We need to include a lang string for each block region.                              
-// We need to include a lang string for each block region.                                                                          
+// We need to include a lang string for each block region.
+// We need to include a lang string for each block region.
 
 $string['region-side-pre'] = 'Jobb';
 $string['backgrounds'] = 'Háttérképek';
 
-// Footer settings
+// Footer settings.
 $string['footer'] = 'Lábléc';
 $string['footerlinks_desc'] = 'Ha be van pipálva, a link nem fog megjelenni a láblécen.';
 $string['footerhidehelplinksetting'] = 'Moodle doksi link elrejtése';
