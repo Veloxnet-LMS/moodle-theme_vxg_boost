@@ -16,7 +16,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version      = '2020072600';
+$plugin->version      = '2020082000';
 $plugin->requires     = '2016070700';
 $plugin->component    = 'theme_vxg_boost';
 $plugin->dependencies = [
