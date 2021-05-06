@@ -19,11 +19,11 @@ $pink:    #e83e8c !default;
 $red:     #FF7851 !default;
 $orange:  #fd7e14 !default;
 $yellow:  #FFCE67 !default;
-$green:   #56CC9D !default;
+$green:   #0a0a0a !default;
 $teal:    #20c997 !default;
 $cyan:    #6CC3D5 !default;
 
-$primary:       #78C2AD !default;
+$primary:       #65a08e !default;
 $secondary:     #F3969A !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -179,8 +179,8 @@ body {
     background-color: $bodybgcolor;
     }
 
- a{
-    color: $primary;
+ a {
+    color: #3b5f54;
     text-decoration: none; 
 }
 
@@ -245,6 +245,10 @@ section.node-category {
 .block .dropdown-item:focus{
     background-color: $primary;
     color: white;
+}
+
+.dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus, .dropdown-item:focus-within {
+    background-color: #78c2ad;
 }
 
 .vxg-block-header {
@@ -364,3 +368,7 @@ section.node-category {
 #region-main{
     padding: 1.2rem;
 }
+
+.environmenttable .warn {
+    background-color: #FFCE67;
+    color: #741f46; }

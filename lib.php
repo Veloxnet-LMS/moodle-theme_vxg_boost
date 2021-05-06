@@ -14,14 +14,28 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Vxg Boost.
+ *
+ * @package    theme_vxg_boost
+ * @copyright  Veloxnet
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Get main scss content.
+ *
+ * @param object $theme
+ * @return string sccs
+ */
 function theme_vxg_boost_get_main_scss_content($theme) {
     global $CFG;
 
-    $scss = '';
+    $scss     = '';
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();
+    $fs       = get_file_storage();
 
     $context = context_system::instance();
     if ($filename == 'default.scss') {
@@ -35,16 +49,22 @@ function theme_vxg_boost_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/preset/default.scss');
     }
 
-        // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-        $pre = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/pre.scss');
-        // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
-        $post = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/post.scss');
+    // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
+    $pre = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/pre.scss');
+    // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
+    $post = file_get_contents($CFG->dirroot . '/theme/vxg_boost/scss/post.scss');
 
-        // Combine them together.
-        return $pre . "\n" . $scss . "\n" . $post;
+    // Combine them together.
+    return $pre . "\n" . $scss . "\n" . $post;
 
 }
 
+/**
+ * Update images.
+ *
+ * @param string $settingname
+ * @return void
+ */
 function theme_vxg_boost_update_settings_images($settingname) {
     global $CFG;
 
@@ -92,29 +112,36 @@ function theme_vxg_boost_update_settings_images($settingname) {
     // Reset theme caches.
     theme_reset_all_caches();
 }
+
+/**
+ * Get pre scss content
+ *
+ * @param object $theme
+ * @return string scss
+ */
 function theme_vxg_boost_get_pre_scss($theme) {
     global $CFG;
 
-    $scss = '';
+    $scss         = '';
     $configurable = [
         // Config key => [variableName, ...].
-        'brandcolor' => ['primary'],
-        'brandsuccesscolor' => ['success'],
-        'brandinfocolor' => ['info'],
-        'brandwarningcolor' => ['warning'],
-        'branddangercolor' => ['danger'],
-        'dashboardcolor' => ['dashboardcolor'],
-        'footerhidehelplink' => ['footerhidehelplink'],
-        'footerhidelogininfo' => ['footerhidelogininfo'],
-        'footerhidehomelink' => ['footerhidehomelink'],
-        'footerhideusertourslink' => ['footerhideusertourslink'],
+         'brandcolor'                => ['primary'],
+        'brandsuccesscolor'         => ['success'],
+        'brandinfocolor'            => ['info'],
+        'brandwarningcolor'         => ['warning'],
+        'branddangercolor'          => ['danger'],
+        'dashboardcolor'            => ['dashboardcolor'],
+        'footerhidehelplink'        => ['footerhidehelplink'],
+        'footerhidelogininfo'       => ['footerhidelogininfo'],
+        'footerhidehomelink'        => ['footerhidehomelink'],
+        'footerhideusertourslink'   => ['footerhideusertourslink'],
         'footerhidetooldataprivacy' => ['footerhidetooldataprivacy'],
-        'footerhidewhole' => ['footerhidewhole'],
-        'cardsbgcolor' => ['cardsbgcolor'],
-        'foterbgcolor' => ['foterbgcolor'],
-        'drawerbgcolor' => ['drawerbgcolor'],
-        'bodybgcolor' => ['bodybgcolor'],
-        'drawerstyle' => ['drawerstyle'],
+        'footerhidewhole'           => ['footerhidewhole'],
+        'cardsbgcolor'              => ['cardsbgcolor'],
+        'foterbgcolor'              => ['foterbgcolor'],
+        'drawerbgcolor'             => ['drawerbgcolor'],
+        'bodybgcolor'               => ['bodybgcolor'],
+        'drawerstyle'               => ['drawerstyle'],
 
     ];
 
@@ -124,9 +151,9 @@ function theme_vxg_boost_get_pre_scss($theme) {
         if (empty($value)) {
             continue;
         }
-        array_map(function($target) use (&$scss, $value) {
+        array_map(function ($target) use (&$scss, $value) {
             $scss .= '$' . $target . ': ' . $value . ";\n";
-        }, (array) $targets);
+        }, (array)$targets);
     }
 
     // Prepend pre-scss.
@@ -137,6 +164,12 @@ function theme_vxg_boost_get_pre_scss($theme) {
     return $scss;
 }
 
+/**
+ * Get extra scss content
+ *
+ * @param object $theme
+ * @return string scss
+ */
 function theme_vxg_boost_get_extra_scss($theme) {
     return !empty($theme->settings->scss) ? $theme->settings->scss : '';
 }
